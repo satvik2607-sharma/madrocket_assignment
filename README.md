@@ -1,16 +1,14 @@
 # madrocket_assignment
 
-A new Flutter project.
+Features I was able to implement:
+1. Creating a login/register form for subhash and vendors
+2. Authentication system with email/password done using Google Firebase
+3. Home Screen layout containing three dropdown for adding inventory of each item
+4. seperate logout button present on appbar so that user can easily logout along with alert dialog box for the confirmation
 
-## Getting Started
+Features I was not able to implement:
+1. Passing the data of inventory from subash app to vendor app.
+2. Notifications system as soon as the inventory level is set to low
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
