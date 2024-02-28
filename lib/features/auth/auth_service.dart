@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:madrocket_assignment/screens/home_screen.dart';
 
 class AuthServices {
   static signupUser(
@@ -32,16 +33,33 @@ class AuthServices {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('You are Logged in')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('You are Logged in'),
+        ),
+      );
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('No user Found with this Email')));
+          SnackBar(
+            content: Text('No user Found with this Email'),
+          ),
+        );
       } else if (e.code == 'auth-credential is incorrect') {
         print(e.toString());
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('credentials do not match')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('credentials do not match'),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Something went wrong'),
+          ),
+        );
       }
     }
   }

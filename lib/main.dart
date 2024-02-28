@@ -18,16 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return HomeScreen();
-          } else {
-            return LoginForm();
-          }
-        },
-      ),
+      home: LoginForm(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
     );
