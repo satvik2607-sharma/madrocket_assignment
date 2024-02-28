@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:madrocket_assignment/features/auth/auth_service.dart';
+import 'package:madrocket_assignment/vendor1/vendor1_auth_service.dart';
 
 class Vendor1LoginForm extends StatefulWidget {
   const Vendor1LoginForm({super.key});
@@ -23,7 +24,7 @@ class _Vendor1LoginFormState extends State<Vendor1LoginForm> {
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          'Subash Stationary',
+          'Vendor 1 Login',
           style: GoogleFonts.aBeeZee(),
         ),
       ),
@@ -126,9 +127,9 @@ class _Vendor1LoginFormState extends State<Vendor1LoginForm> {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
                           login
-                              ? AuthServices.signinUser(
+                              ? Vendor1AuthService.signinUser(
                                   email, password, context)
-                              : AuthServices.signupUser(
+                              : Vendor1AuthService.signupUser(
                                   email, password, fullname, context);
                         }
                       },

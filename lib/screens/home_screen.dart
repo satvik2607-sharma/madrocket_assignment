@@ -3,7 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:madrocket_assignment/features/auth/ui/vendor1_login.dart';
+import 'package:madrocket_assignment/features/auth/ui/login.dart';
+import 'package:madrocket_assignment/vendor1/vendor1_home_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,6 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () async {
                     await FirebaseAuth.instance.signOut();
                     Navigator.of(context, rootNavigator: true).pop('dialog');
+                    Navigator.pop(context,
+                        MaterialPageRoute(builder: (context) => LoginForm()));
                   },
                   child: Text('Yes'))
             ],
@@ -43,9 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   final List<String> quantity = ['Low', 'Medium', 'High'];
-  String? quantity1;
-  String? quantity2;
-  String? quantity3;
+  String quantity1 = '';
+  String quantity2 = '';
+  String quantity3 = '';
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 9,
               ),
               DropdownButtonFormField2(
-                isExpanded: false,
+                isExpanded: true,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(vertical: 16),
                   border: OutlineInputBorder(
@@ -215,10 +218,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: double.maxFinite,
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Vendor1LoginForm()));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => Vendor1HomeScreen(quantity1: quantity1)));
                       },
                       child: Text('Save')))
             ],

@@ -4,10 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Vendor1HomeScreen extends StatefulWidget {
   var quantity1;
-  Vendor1HomeScreen({
-    Key? key,
-    required this.quantity1,
-  }) : super(key: key);
+  Vendor1HomeScreen({Key? key, this.quantity1}) : super(key: key);
 
   @override
   State<Vendor1HomeScreen> createState() => _Vendor1HomeScreenState();
@@ -68,18 +65,13 @@ class _Vendor1HomeScreenState extends State<Vendor1HomeScreen> {
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Pen',
-                    style:
-                        GoogleFonts.aBeeZee(color: Colors.white, fontSize: 20),
-                  ),
-                  Text(
-                    "${widget.quantity1}",
-                    style: GoogleFonts.aBeeZee(color: Colors.white),
-                  )
+                  // Text("Pen, $quantity1", style: GoogleFonts.aBeeZee(color: Colors.white),),
                 ],
               )
             ],
